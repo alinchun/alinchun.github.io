@@ -7,7 +7,8 @@
 
 
   .nav-self {
-    background-color: #f6c0ac40;
+    /* background-color: #f6c0ac40; */
+    background-color:#fdefea;
 
   }
 
@@ -20,8 +21,7 @@
     height: 100px;
     text-align: center;
   }
-  .container-nav{
-    position: static
-  }
-
+.carousel-self{
+  margin-top: 100px;
+}
   
