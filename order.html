@@ -242,6 +242,8 @@
     <!-- 表格 -->
     <div class="container mt-5 border border-black" id="container-items">
       <div class="item-row row mt-5">
+        <input type="hidden" class="imageName" value="">
+       
         <div class="col">
           <div class="mb-3">
             <label class="form-label">商品</label>
@@ -390,7 +392,7 @@
 
         // console.log(stockName)
         // console.log(valueOfElement)
-        console.log(imageName);
+        
         // console.log(priceName);
         $(valueOfElement).text(`${stockName}`);
 
@@ -429,10 +431,10 @@
       itemBtn.click(function () {
         let getRowStockName = $('.item-row').first().find('.stockName').val();
         let getPriceName = $('.item-row').first().find('.priceName').val();
-        // let getImageName = $('.item-row').first().find('.imageName').val();
+        
         console.log('getRowStockName', getRowStockName);
         console.log('getRowStockName.length', getRowStockName.length);
-        // console.log('getImageName', getImageName);
+       
         console.log('getPriceName', getPriceName);
 
 
@@ -448,6 +450,10 @@
         let stockName = $(this).attr('data-stock-name');
         console.log('stockName', stockName);
         let priceName = $(this).attr('data-price');
+        let imageName = $(this).attr('data-img');
+        
+        lastRow.find('.imageName').val(imageName);
+        console.log();
 
         lastRow.find('.stockName').val(stockName);
         lastRow.find('.numInput').val('1');
@@ -480,9 +486,7 @@
           i++;
 
           let closeRow = $(valueOfElement).parent().parent().parent();
-          let imgRow = $(valueOfElement).parent().parent().parent().parent().parent().next().next();
-          console.log('imgRow', imgRow);
-          console.log('closeRow', closeRow);
+          
 
 
 
@@ -492,8 +496,11 @@
           let suger = closeRow.find('.sugerInput').val();
           let ice = closeRow.find('.iceInput').val();
           console.log('ice', ice);
-          let imageUrl = imgRow.find('.itemBtn').attr('data-img');
+          let imageUrl = closeRow.find('.imageName').val();
           console.log('imageUrl', imageUrl);
+          
+         
+
 
 
 
