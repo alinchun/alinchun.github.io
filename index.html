@@ -509,12 +509,20 @@
     <div class="row">
       <div class="col mt-3">
         <button type="button" class="btn btn-primary" id="myBtn">了解茶葉生產資料</button>
+        <!-- <button type="button" class="btn btn-primary" id="closeBtn">關閉</button> -->
       </div>
     </div>
     <div>
       <div class="col-8 mt-3">
         <table id="myTable" class="display">
+
           <thead style="display: none;">
+            <p style="display: none;">
+              資料來源：政府資料開放平臺 — 臺灣地區特用作物生產概況 (https://data.gov.tw/dataset/9681)
+            </p>
+            <p style="display: none;">
+              擷取近三年(2021-2022)茶葉生產資訊
+            </p>
             <tr>
               <th>年度</th>
               <th>地區別</th>
@@ -539,6 +547,8 @@
             const myTbody = $('#myTbody');
             const thead = $('thead');
             const myBtn = $('#myBtn');
+            const closeBtn = $('#closeBtn');
+            const p = $('p');
             let content = '';
 
             myBtn.click(function () {
@@ -552,7 +562,7 @@
 
                   let data = response;
 
-                  // for 1- 143 
+                  
                   for (let i = 0; i < data.length; i++) {
                     content = content +
                       `<tr>
@@ -568,11 +578,16 @@
                   }
 
                   thead.show();
+                  p.show();
+                  
                   myTbody.html(content);
                   myTable.DataTable();
                   // myBtn.remove();
 
+
                 }
+
+                
 
 
               });
